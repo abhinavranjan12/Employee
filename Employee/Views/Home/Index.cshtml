@@ -1,0 +1,105 @@
+﻿ 
+
+@{
+	ViewBag.Title = "Welcome";
+}
+<style>
+	table, tr, td, th {
+		border: 1px solid #ccc;
+		padding: 10px;
+		margin: 10px;
+	}
+	
+</style>
+
+
+<div>
+	<div ng-controller="APIController">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="pull-left">
+					<h2>Employee Detail</h2>
+				</div>
+				<div class="pull-right">
+					<h2>
+
+						@*<a href="~/UpdateEmployee"><button class="form-control">Add New Employee</button></a>*@
+						<a href="~/UserLogin"><button class="form-control">LogOut</button></a>
+						
+						<a href="~/AdminHome"><button class="form-control">Dashboard</button></a>
+					</h2>
+
+				</div>
+				<div class="pull-right">
+					<h2>
+						
+							
+					
+						
+					</h2>
+
+				</div>
+			</div>
+		</div>
+		<table ng-init="getAllEmployees()">
+			<tr>
+				<th>EmpId</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Dob</th>
+				<th>UserName</th>
+				<th>Mobile</th>
+				<th>Address1</th>
+				<th>Address2</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Zip</th>
+				<th>Joining Date</th>
+				<th>Role</th>
+				
+				<th>Deactivate Employee</th>
+				<th><b>Actions</b></th>
+				
+				
+			</tr>
+			<tbody ng-repeat="employee in employees">
+				<tr>
+					<td>{{employee.Id}}</td>
+					<td>{{employee.FirstName}}</td>
+					<td>{{employee.LastName}}</td>
+					<td>{{employee.Dob}}</td>
+					<td>{{employee.UserName}}</td>
+					<td>{{employee.Mobile}}</td>
+					<td>{{employee.Address1}}</td>
+					<td>{{employee.Address2}}</td>
+					<td>{{employee.City}}</td>
+					<td>{{employee.State}}</td>
+					<td>{{employee.Zip}}</td>
+					<td>{{employee.JoiningDate}}</td>
+					<td>{{employee.Role}}</td>
+					<td>
+						@*<a><input type="checkbox" id="OnActive" ng-model="employee.Active" ng-click="OnDeActive(employee.Id)" />D</a>*@
+						<a><input type="checkbox" id="OnDeActive" ng-model="employee.Active" ng-click="activateEmployee(employee.Id)" ng-disabled="employee.Active==true" />A</a>	
+					<a><input type="checkbox" id="OnActive" ng-model="employee.Active" ng-click="deactivateEmployeeById(employee.Id)" ng-disabled="employee.Active==false" />D</a>
+					
+					</td>
+
+					@*<td><a href="~/ShowManager?id={{employee.Id}}"><button class="form-control"  ng-click="getDataManagerById(employee.Id)">ShowManager</a></td>*@
+					<td ng-hide="employee.Active==false">
+
+						<a href="~/AddEmployees?id={{employee.Id}}"><button class="glyphicon glyphicon-edit" ng-click="getAllEmployeesById(employee.Id)" ng-disabled="employee.Active==false">Edit</a>
+						@*<a><button id="Delete" value="Delete" data-ng-click="deleteEmployees(employee.Id)" style="width:100%" />Delete</a>*@
+						<a href="~/AddManager?id={{employee.Id}}" ng-disabled="disabled"><button class="glyphicon glyphicon-edit" ng-disabled="employee.Active==false">AssgManager</a>
+						@*<input type="button" id="Delete" value="Delete" />*@
+
+
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+

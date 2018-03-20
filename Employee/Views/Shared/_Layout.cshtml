@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>@ViewBag.Title</title>
+	@Styles.Render("~/Content/css")
+	@Styles.Render("~/Content/style.css")
+	@Scripts.Render("~/bundles/modernizr")
+	@*@Styles.Render("~/Content/admin.css")*@
+	<link href="~/App_Data/style.css" rel="stylesheet" />
+	<script src="~/Scripts/angular.min.js"></script>
+	<script src="~/Scripts/Api/app.js"></script>
+	<script src="~/Scripts/Api/Service.js"></script>
+	<script src="~/Scripts/Api/Controller.js"></script>
+	<script src="~/Scripts/Api/Manager/ManegerService.js"></script>
+	<script src="~/Scripts/Api/Manager/ManagerController.js"></script>
+	<script src="~/Scripts/Api/Manager/AddManagerCtrl.js"></script>
+
+	@*<script src="~/Scripts/Api/ManagerService.js"></script>*@
+	@*<link rel="Stylesheet" href="~/ShowManager/style.css" type="text/css" />*@
+
+
+</head>
+<body ng-app="APIModule">
+	 <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("Application name", "Index", "UserLogin", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					@*<li id="nav-UserLogin" ng-click="$scope.loginOrOut()">
+						 href not used but needed to compare against path in menu-highlighter 
+						<a data-href="#/UserLogin">{{ $scope.loginLogoutText }}</a>
+					</li>*@
+					@*<li>@Html.ActionLink("LogOut", "Index", "LogOut", new { area = ""}, new { @class = "LoginOrOut" })</li>*@
+					@*<li>@Html.ActionLink("Home", "Index", "LogOut", new { area = "" }, null)</li>*@
+					@*<li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>*@
+
+				</ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

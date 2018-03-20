@@ -1,0 +1,36 @@
+﻿
+@{
+	ViewBag.Title = "Index";
+}
+
+<div  ng-controller="APIController">
+	<div ng-init="populateManagerAssignPage()">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="pull-left">
+					<h2>Employee Manger</h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+
+			<select class="form-control" ng-model="employeeManager.ManagerId">
+				<option value="">---Select Manger --- </option>
+				<option ng-repeat="manager in managers" value="{{manager.Id}}">
+					{{manager.FirstName}} {{manager.LastName}}
+				</option>
+			</select>
+
+			Is Primary <input type="checkbox" ng-model="employeeManager.PrimaryManager" />
+
+		</div>
+		<div class="form-group">
+	<button type="button" class="btn btn-default" ng-click="saveManager()" style="text-align:left;width:130px">Save Manager</button>
+		@*<button type="button" class="btn btn-default" ng-click="updateManager()" style="text-align:left;width:130px">Save manager</button>*@
+			<br />
+		<button type="button" class="btn btn-default" ng-click="clicked()" style="text-align:left;width:130px">Back</button>
+	</div>
+</div>
+</div>
+

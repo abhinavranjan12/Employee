@@ -1,0 +1,67 @@
+﻿
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div ng-controller="ManagerController">
+
+
+
+	<h1>
+		<img src="~/Assets/xcdify.jpg" style="width:10%">
+	</h1>
+	<br />
+	<div class="container-fluid">
+		<div class="panel panel-success" style="width: 50%;">
+			<div class="panel-heading">Login</div>
+			<div class="panel-body" style="box-shadow: -6px 2px 46px 7px #888888; padding: 20px;">
+				<form name="loginForm" ng-submit="login()" novalidate>
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-md-3" style="text-align: right;">
+								Username :
+							</div>
+							<div class="col-md-6">
+								<div class="input-group">
+									<input type="text" class="form-control" id="UserName" placeholder="Username" ng-model="employees.UserName" name="UserName" required autofocus />
+									<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-3" style="text-align: right;">
+								Password :
+							</div>
+							<div class="col-md-6">
+								<div class="input-group">
+									<input type="password" class="form-control" id="Password" placeholder="Password" ng-model="employees.Password" name="Password" required autofocus />
+									<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-6">
+									<div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px; top: 0px; width: 100%; height: 100%; background-color: #666666; z-index: 30001; opacity: .8; filter: alpha(opacity=70); display: none">
+										<p style="position: absolute; top: 30%; left: 45%; color: White;">
+											please wait...<img src="~/Assets/xcdify.jpg">
+										</p>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="col-md-5" style="text-align: right;">
+									<button id="btnLogin" type="submit" class="btn btn-success" ng-disabled="!(employees.UserName && employees.Password)">Login</button>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div> 

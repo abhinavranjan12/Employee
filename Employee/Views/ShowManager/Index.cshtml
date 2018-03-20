@@ -1,0 +1,60 @@
+﻿
+
+@{
+	ViewBag.Title = "Welcome";
+}
+<style>
+	table, tr, td, th {
+		border: 1px solid #ccc;
+		padding: 10px;
+		margin: 10px;
+	}
+</style>
+
+
+<div>
+	<div ng-controller="APIController">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="pull-left">
+					<h2>Employee</h2>
+				</div>
+				<div class="pull-right">
+					<h2>
+						@*<a href="~/AddEmployees"><button class="form-control">Add New Employee</button></a>*@
+						@*<a href="~/AddManager"><button class="form-control">Add New Manager</button></a>*@
+					</h2>
+				</div>
+			</div>
+		</div>
+		<table ng-init="populateManagerAssignPage()">
+			<tr>
+				<th>EmpId</th>	
+				<th>ManagerName</th>
+				
+				
+				
+			</tr>
+			<tbody ng-repeat="manager in managers">
+				<tr>
+					<td>{{manager.Id}}</td>
+					
+					<td>{{manager.FirstName}} {{manager.FirstName}}</td>
+					<td>
+
+						@*<a href="~/AddEmployees?id={{employee.Id}}"><button class="form-control" ng-click="getAllEmployeesById(employee.Id)">Edit</a>
+						<a><button id="Delete" value="Delete" data-ng-click="deleteEmployees(employee.Id)" />Delete</a>
+						<a href="~/AddManager?id={{employee.Id}}"><button class="form-control" ng-click="">AssgManager</a>*@
+						@*<input type="button" id="Delete" value="Delete" />*@
+
+
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+
